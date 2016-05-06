@@ -54,6 +54,35 @@ class CalculatorBrain
         learnOp( Op.Constant("π", M_PI) )
     }
     
+    // Use typealias to make very clear that program is a property list (since is a public var)
+    // Its a property list so it can be thrown in to NSUserDefaults, etc. 
+    // Property list is blind data passing, only creator knows how to interpret
+    typealias PropertyList = AnyObject
+    var program: PropertyList { // guaranteed to be a property list
+        get {
+            // Closure takes every thing inside opStack (which are ops) in to a string, and it takes that string and maps
+            // them all and returns a new array of strings
+            return opStack.map { $0.description }
+        }
+        set {
+            // In setter, so newValue is new value of AnyObject
+            // Make sure the object passed is actually an array of strings
+            if let opSymbols = newValue as? Array<String> {
+                var newOpStack = [Op]()
+                for opSymbol in opSymbols {
+                    if let op = knownOps[opSymbol] {
+                        newOpStack.append(op)
+                    } else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue {
+                        newOpStack.append(.Operand(operand))
+                    } else {
+                        newOpStack.append(.Variable(opSymbol))
+                    }
+                }
+                opStack = newOpStack
+            }
+        }
+    }
+    
     // Computed Variable
     var description: String {
         get{

@@ -344,12 +344,12 @@
                                 <exclude reference="Ccu-Ov-0q0"/>
                                 <exclude reference="e6C-1K-LuQ"/>
                                 <exclude reference="zat-Gj-JxV"/>
+                                <exclude reference="cr9-hK-iqj"/>
+                                <exclude reference="Bxc-0g-V7T"/>
                                 <exclude reference="3iT-bz-uH6"/>
                                 <exclude reference="Aqb-IO-kOf"/>
                                 <exclude reference="PWH-uV-u9M"/>
                                 <exclude reference="Tst-nx-QZM"/>
-                                <exclude reference="cr9-hK-iqj"/>
-                                <exclude reference="Bxc-0g-V7T"/>
                                 <exclude reference="Gna-xE-V03"/>
                             </mask>
                         </variation>
@@ -410,7 +410,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="graphView" destination="lsV-9D-9wf" id="WkX-9J-3Eu"/>
+                        <outlet property="graphView" destination="lsV-9D-9wf" id="zHg-dH-tWd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WC2-Ro-eRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
